@@ -9,7 +9,7 @@ def start_difficulty():
     else:
         return 5
 
-def randomNum():
+def random_num():
     """Generate random integer between 1 and 100."""
     num = random.randint(1, 100)
     return num
@@ -30,14 +30,17 @@ def guess(attempts, hidden_number):
         attempts -= 1
     return False
     
-def conclusion(win_or_lose):
+def conclusion(win_or_lose, num):
     """Informs user if they won or lost."""
     if win_or_lose:
-        print(f"You got it! You win! The number is {randomNum_selected}!")
+        print(f"You got it! You win! The number is {num}!")
     else:
-        print(f"You are out of guesses, you lose. The number was {randomNum_selected}.")
+        print(f"You are out of guesses, you lose. The number was {num}.")
 
-randomNum_selected = randomNum()
-starting_attempts = start_difficulty()
-win_or_lose = guess(starting_attempts, randomNum_selected)
-conclusion(win_or_lose)
+def number_game():
+    random_num_selected = random_num()
+    starting_attempts = start_difficulty()
+    win_or_lose = guess(starting_attempts, random_num_selected)
+    conclusion(win_or_lose, random_num_selected)
+
+number_game()
